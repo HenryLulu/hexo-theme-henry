@@ -1,0 +1,49 @@
+@import "_variables"
+
+global-reset()
+
+html
+  background: color-background;
+
+body
+  margin: 0;
+  color: color-black;
+
+.body
+  position relative;
+  box-sizing: border-box;
+  margin-left: 11.11vw;
+  min-height: 100vh;
+  @media mq-col-6
+    margin-left: 16.6vw;
+  @media mq-mobile
+    margin-left: 0;
+
+.bg-lines
+  position: fixed;
+  z-index: 10;
+  pointer-events: none;
+  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: stretch;
+  .bg-lines-item
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-right: 1px solid rgba(0,0,0,.08);
+    z-index: 0;
+    position: relative;
+    overflow: hidden;
+    width: 11.11vw;
+    box-sizing: border-box;
+    @media mq-col-6
+      width: 16.6vw;
+    @media mq-mobile
+      width: 33.33vw;
+
+@import "reset"
+@import "./components/nav"
+@import "./components/main"

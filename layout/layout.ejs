@@ -1,0 +1,36 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container">
+    <% var from = '' %>
+    <% if (path === '' || path === 'index.html') { %>
+      <% from = 'home' %>
+    <% } else { %>
+      <% var p = path.split('/')[0]; %>
+      <% if (['tags', 'archives' ].indexOf(p) > -1) { %>
+        <% from = p; %>
+      <% } else { %>
+        <% from = 'post'; %>
+      <% } %>
+    <% } %>
+    <div class="bg-lines">
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+      <div class="bg-lines-item"></div>
+    </div>
+    <%- partial('./components/nav', {
+      from: from
+    }) %>
+    <div class="body from-<%= from %>">
+      <%- body %>
+    </div>
+  </div>
+</body>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+<%- js('js/script') %>
+</html>

@@ -1,0 +1,8 @@
+<section class="article">
+  <p class="info"><%= showPost.date.format('YYYY-MM-DD HH:mm') %></p>
+  <h1 class="title"><%= showPost.title %></h1>
+  <p class="summary"><%= showPost.excerpt %></p>
+  <div class="main-content">
+    <%- showPost.content %>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<div class="main">
+<% if (from === 'tags' || from === 'archives' || from === 'home') { %>
+  <% var tagPosts = !showTag ? site.posts : site.posts.filter(post => post.tags.map(t => t.name).indexOf(page.tag) > -1) %>
+  <% tagPosts.slice(0, 1).each(post => { %>
+    <%- partial('menu', {showTag: showTag, showPost: post}) %>
+    <%- partial('article', {showPost: post}) %>
+  <% }) %>
+<% } else if (from === 'post' && page) { %>
+  <%- partial('menu', {showTag: showTag, showPost: page}) %>
+  <%- partial('article', {showPost: page}) %>
+<% } %>
